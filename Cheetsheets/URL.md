@@ -17,3 +17,5 @@
 [Сайт с бесплатным ПО](https://www.jetbrains.com/ru-ru/), в частности можно скачать программу, в которой удобно писать код для `python` [PyCharm](https://www.jetbrains.com/ru-ru/pycharm-edu/)
 
 [Git шпаргалка для всего](https://docs.github.com/en)
+
+[Markdown МАТЕМАТИКА](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference#5020)
