@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+    function getArray(n){
+        var array = []
+        for (var i = 1 ; i <= n ; i++)
+            array.push(i);
+        return array;
+    }
+
+    function pritnArray(array){
+        for (var i = 0 ; i < array.length ; i++)
+            document.write(array[i] + " ");
+    }
+
+    function sumArray(array){
+        var sum = 0;
+        for (var i = 0 ; i < array.length ; i++)
+            sum = sum + array[i];
+        return sum;
+    }
+
+    function maxArray(array){
+        var max = 0;
+        var maxIndex = -1;
+        for (var i = 0 ; i < array.length ; i++)
+            if (array[i]>max){
+                max = array[i];
+                maxIndex = i;
+            } 
+        return max;
+    }
+
+    function avgArray(array){
+        var avg = 0;
+        var sum = 0;
+        for (var i = 0 ; i < array.length ; i++)
+            sum = sum + array[i];
+        avg = sum / array.length;
+        return avg;
+    }
+
+    var n = prompt("Введите длину массива : ");
+    pritnArray(getArray(n));
+    document.write("<br>")
+    document.write("Sum = " + sumArray(getArray(n)) + "<br>")
+    document.write("Avg = " + avgArray(getArray(n)) + "<br>")
+    document.write("Max = " + maxArray(getArray(n)) + "<br>")
+
+
+</script>
