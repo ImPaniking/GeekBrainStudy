@@ -20,7 +20,7 @@ void printResulPolindrome(string text){
 string wordOrText(string text){
     string result = "Слово";
     for (int i = 0 ; i < text.Length ; i ++){
-        if (text[i] == (char)32) result = "Текст";}
+        if (text[i] == Convert.ToChar(" ")) result = "Текст";}
 return result;}
 
 
@@ -32,7 +32,7 @@ string whtToDoWithSpaces(){
         cki = Console.ReadKey(true);
     }while (cki.Key == ConsoleKey.Y && cki.Key == ConsoleKey.N );
     
-return $"{cki.Key}";}
+return Convert.ToString(cki.Key);}
 
 string spaceDel(string text){
     string newText = String.Empty;
@@ -54,10 +54,9 @@ switch (wordOrNumberTest(text)){
         printResulPolindrome(text);
         break;
     case "Текст":
-        printResulPolindrome(text);
+        if (whtToDoWithSpaces() == "Y" ) printResulPolindrome(text);
+        else printResulPolindrome(spaceDel(text));
         break;}
-
-
 
 Console.WriteLine("\tДля выхода нажмите ESC,\n для повторна, нажмите любую клавишу к примеру ENTER");
 }while (Console.ReadKey().Key != ConsoleKey.Escape);
