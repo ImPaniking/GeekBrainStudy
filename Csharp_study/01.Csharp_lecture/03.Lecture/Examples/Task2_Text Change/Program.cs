@@ -11,12 +11,11 @@ return newText;
 
 char lengthControl(){ // Метод проверки кол-ва введёных символов для недопущения ошибки при вводе символов
     string symb =String.Empty;
-    while (symb.Length !=1){
+    while (symb.Length !=1 ){
         symb = Console.ReadLine();
         if (symb.Length != 1){
             Console.WriteLine("Ввели слишком много символов");
-            Console.Write("\tВведите 1 символ : ");
-        }
+            Console.Write("\tВведите 1 символ : ");}
     }
 return Convert.ToChar(symb);
 }
