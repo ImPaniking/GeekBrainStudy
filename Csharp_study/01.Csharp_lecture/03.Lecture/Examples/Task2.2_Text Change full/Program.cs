@@ -1,4 +1,5 @@
-﻿string useOldTextOrNewText(){// метод вывода кнопки кнопки из 2х вариантов
+﻿System.Console.OutputEncoding = System.Text.Encoding.Unicode;
+string useOldTextOrNewText(){// метод вывода кнопки кнопки из 2х вариантов
     ConsoleKeyInfo cki;
     Console.WriteLine("Повторить ? Используя старый текст, нажминет ENTER"+ 
     "\nПовторить? Используя новый текст, нажмите N"+
@@ -31,12 +32,12 @@ char numberInput(int num, string text){//метод проверки числа
 return (char)number;}
 
 string wordInput(string text,string textToWrite){
-    string word =String.Empty;
-    while (word.Length >= text.Length || word.Length = 0){
+    string word =" ";
+    while (word.Length >= text.Length || word.Length != 0){
         Console.WriteLine($"Введите слово {textToWrite} нужно поменять : ");
         word = Console.ReadLine();
         if (word.Length > text.Length) Console.Write($"Введённое слово больше текста - ");
-        else if (word.Length = 0) Console.Write($"Ввели пустое значение - ");}    
+        else if (word.Length == 0) Console.Write($"Ввели пустое значение - ");}    
 return word;}
 
 string useSymbOrChar(){// метод вывода кнопки кнопки из 2х вариантов
@@ -48,7 +49,7 @@ string useSymbOrChar(){// метод вывода кнопки кнопки из
     "ВНИМАНИЕ! обязательно на английской расскладке");
     do{
         cki = Console.ReadKey(true);
-    }while (cki.Key != ConsoleKey.S && cki.Key != ConsoleKey.C );
+    }while (cki.Key != ConsoleKey.S && cki.Key != ConsoleKey.C && cki.Key != ConsoleKey.W );
 return Convert.ToString(cki.Key);}
 
 string replaceSymbolsInText(string text,char symMinus,char SymPlus){
@@ -60,19 +61,21 @@ bool lookUpSymb(string text,char symb){
     for (int i = 0;i<text.Length;i++){
         if (text[i]==symb) findChange = true;}
 return findChange;}
+
 bool lookUpWord(string text,string word){
     bool findChange = false;
     for (int i = 0;i <= text.Length-word.Length;i++){
-        for (int j=0;j<word.Length){
+        for (int j=0;j<word.Length;j++){
             if (text[i+j] == word[j]) findChange = true;
         }
     }
+return findChange;
 }
 
 string text = String.Empty;
 string textNew = String.Empty;
-string wordToChange = String.Empty;
-string wordNew = String.Empty;
+string wordToChange = " ";
+string wordNew = " ";
 char symbolToChange = '\0';
 char symbolWithWhatToChange = '\0';
 string newTextOrOld = (string)"N";
@@ -114,11 +117,11 @@ do { // тело программы с возможностью повтора
             do{
                 do{ 
                     wordToChange = wordInput(text , "которое");
-                    if (lookUpSymb(text,symbolToChange) == false) Console.WriteLine("Нет такого символа в тексте - повторный ввод");
-                }while (lookUpSymb(text,symbolToChange) == false);
+                    if (lookUpWord(text,wordToChange) == false) Console.WriteLine("Нет такого символа в тексте - повторный ввод");
+                }while (lookUpWord(text,wordToChange) == false);
             wordNew = wordInput(text , "на которое");
-            if (symbolToChange == symbolWithWhatToChange) Console.WriteLine("Символы равны, повторый ввод");
-            } while (symbolToChange == symbolWithWhatToChange || lookUpSymb(text,symbolToChange) == false);
+            if (wordToChange == wordNew) Console.WriteLine("Символы равны, повторый ввод");
+            } while (wordToChange == wordNew || lookUpWord(text,wordToChange) == false);
             break;
     }
     Console.Clear();
