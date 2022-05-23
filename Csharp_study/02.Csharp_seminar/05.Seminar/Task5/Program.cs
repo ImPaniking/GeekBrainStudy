@@ -39,6 +39,7 @@ List<int> sumNumbers(int[] array){
     for (int i = 0; i < array.Length/2 ; i++){
         list.Add(array[i]*array[array.Length-1-i]);
     }
+    if (array.Length % 2 == 0 ) list.Add(array[array.Length/2]);
 return list;
 }
 
