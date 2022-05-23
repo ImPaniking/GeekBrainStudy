@@ -25,11 +25,11 @@ return result;
 
 string PrintList(List<int> list){
     string result = String.Empty;
-    for (int i = 0; i < array.Length; i++){
-        if (i == 0) result = "[ "+result + Convert.ToString(array[i]) + ", ";
-        else if (i < array.Length-1)
-            result = result + Convert.ToString(array[i]) + ", ";
-        else result = result + Convert.ToString(array[i]) + "]";
+    for (int i = 0; i < list.Count; i++){
+        if (i == 0) result = "[ "+result + Convert.ToString(list[i]) + ", ";
+        else if (i < list.Count-1)
+            result = result + Convert.ToString(list[i]) + ", ";
+        else result = result + Convert.ToString(list[i]) + "]";
     }
 return result;
 }
@@ -43,3 +43,6 @@ return list;
 }
 
 int[] array = arrayCreation(10);
+List<int> list = sumNumbers(array);
+
+Console.WriteLine($"{PrintArray(array)}\n{PrintList(list)}");
