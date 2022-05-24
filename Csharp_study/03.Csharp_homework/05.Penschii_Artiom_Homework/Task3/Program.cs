@@ -8,14 +8,14 @@
     4.1 Универсальный метод для Размера массива и Диапозона минимального и максимального значения случайных чисел
 */
 
-System.Console.OutputEncoding = System.Text.Encoding.Unicode; // Данная функция нужна мне для ноутбука что бы писались русские символы в консоли
-Console.Clear(); // очистка консали - персональное предпочтение
+System.Console.OutputEncoding = System.Text.Encoding.Unicode; 
+Console.Clear(); 
 
 int [] arrayCreation(int length,int minNumber,int maxNumber){
-    Random rnd= new Random ();//подключаем рандом
-    int[] array = new int[length];//создаём массив
-    for (int i = 0; i< array.Length; i++){//создаём цикл прохода по всему массиву
-        array[i] = rnd.Next(minNumber,maxNumber);//присвоение каждому эллементу массиву 
+    Random rnd= new Random ();
+    int[] array = new int[length];
+    for (int i = 0; i< array.Length; i++){
+        array[i] = rnd.Next(minNumber,maxNumber); 
     }
 return array;
 }
@@ -47,7 +47,7 @@ string printArray(int[] array){
 return result.ToString();
 }
 
-int numberInput(string TextToWriteBeforeInput, string forArrayLengthOrForRandom){//Желание вставить весь воод чисел в один метод
+int numberInput(string TextToWriteBeforeInput, string forArrayLengthOrForRandom){//Желание вставить весь ввод чисел в один метод
     bool examIfStrIsInt = true;
     int number = 0;
     do{

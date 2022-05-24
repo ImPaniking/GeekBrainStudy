@@ -9,8 +9,8 @@
 4. Метод Ввода длины массива и проверки на число >0
 */
 
-System.Console.OutputEncoding = System.Text.Encoding.Unicode; // Данная функция нужна мне для ноутбука что бы писались русские символы в консоли
-Console.Clear(); // очистка консали - персональное предпочтение
+System.Console.OutputEncoding = System.Text.Encoding.Unicode; //Системная установка, нужно мне для ноу-бука так как на нём какие-то сбитые настройки в не работает кодировка в консоли.
+Console.Clear(); // очистка консоли - персональное предпочтение
 
 int [] arrayCreation(int length){//Метод создания массива
     Random rnd= new Random ();//подключаем рандом
@@ -21,7 +21,7 @@ return array;//возвращаем массив
 }
 
 int evenCountInArray(int[] array){ // метод подсчёта чётных значений
-    int count = 0;//создаём переменную, которая и будет выводится
+    int count = 0;//создаём переменную счётчик, которая и будет выводится
     foreach (int item in array){//Пробегаем все эллементы масива
         if (item % 2 == 0)//проверяем - если эллемент массива при делении на 2 даёт остаток 0, значит эллементы чётный
             count++;//увеличиваем счётчик
@@ -67,8 +67,8 @@ Console.WriteLine("Задача 34:\n"+
 "Задайте массив заполненный случайными положительными трёхзначными числами.\n"+
 "Напишите программу, которая покажет количество чётных чисел в массиве.\n");
 
-int arrayLength = numberInput("Введите длину массива : ");// изначально настроит на длину 10 , потом решил повторить метод проверки на ввод числа
+int arrayLength = numberInput("Введите длину массива : ");// Ввод длины массива
 
-int[] array = arrayCreation(arrayLength);
-Console.WriteLine($"\n{printArray(array)} - > {evenCountInArray(array)}");
+int[] array = arrayCreation(arrayLength);//создание массива в теле программы
+Console.WriteLine($"\n{printArray(array)} - > {evenCountInArray(array)}"); // печать массива и результата поиска
 Console.ReadLine();

@@ -13,7 +13,7 @@
 System.Console.OutputEncoding = System.Text.Encoding.Unicode;
 Console.Clear();
 
-int [] arrayCreation(int length,int minNumber,int maxNumber){//Скопировал с задания 1
+int [] arrayCreation(int length,int minNumber,int maxNumber){
     Random rnd= new Random ();
     int[] array = new int[length];
     for (int i = 0; i< array.Length; i++){
@@ -31,7 +31,7 @@ int unEvenPositionInArraySum(int[] array){ // метод поиска не чё�
 return sum;
 }
 
-string printArray(int[] array){//Скопировал из задания 1.
+string printArray(int[] array){
     System.Text.StringBuilder result = new System.Text.StringBuilder();
     for (int i = 0; i < array.Length; i++){
         if ((i == 0) && (array.Length > 1) )
@@ -46,7 +46,7 @@ string printArray(int[] array){//Скопировал из задания 1.
 return result.ToString();
 }
 
-string printArrayIndex(int[] array){//Скопировал из задания и поменял array[i] на i.
+string printArrayIndex(int[] array){// Печать индексов, чисто для удобства сверки
     System.Text.StringBuilder result = new System.Text.StringBuilder();
     for (int i = 0; i < array.Length; i++){
         if ((i == 0) && (array.Length > 1) )
@@ -61,7 +61,7 @@ string printArrayIndex(int[] array){//Скопировал из задания �
 return result.ToString();
 }
 
-int numberInput(string TextToWriteBeforeInput){//Скопировал из задания 1.
+int numberInput(string TextToWriteBeforeInput){
     bool examIfStrIsInt = true;
     int number = 0;
     do{
@@ -79,7 +79,7 @@ int numberInput(string TextToWriteBeforeInput){//Скопировал из за�
     } while (examIfStrIsInt);
 return number;    
 }
-int numberInputForRandom(string TextToWriteBeforeInput){//То же что и 1 но без проверки что бы число было больше 0.
+int numberInputForRandom(string TextToWriteBeforeInput){// В следующем задании объеденил 2 метода. Зрительно - тело программы читабильнее когда 2 разных метода. 
     bool examIfStrIsInt = true;
     int number = 0;
     do{
@@ -111,6 +111,8 @@ int minNumberRandom = numberInputForRandom("Введите минимально�
 int maxNumberRandom = numberInputForRandom("Введите максимальное значение для случайного числа : ")+1;
 
 int[] array = arrayCreation(arrayLength,minNumberRandom,maxNumberRandom);
-Console.WriteLine($"\n{printArrayIndex(array)}" + " index");//Понимаю что это не работает когда значения минусовые или имеют больше 2х цифр.
+Console.WriteLine($"\n{printArrayIndex(array)}" + " index");//Не смог придумать, как сделать динамический отступ по этому предуставноил на 3 символа
+/* в теорри, для того что бы вывод был красивый, мне придётся создать метод, который сравнивал бы длину значения и добавлял недостоющую длину индексу при печати.
+Сделать можно, но не вижу смысла так сильно усложнять. Мог бы просто массив пропечатать как таблицу с шапкой Индекс, Значение  */
 Console.WriteLine($"{printArray(array)} - > {unEvenPositionInArraySum(array)} sum");
 Console.ReadLine();
