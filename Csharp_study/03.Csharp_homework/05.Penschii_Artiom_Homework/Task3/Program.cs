@@ -2,9 +2,10 @@
 
 /*
 1. Создать массив случайных цифр.
-    1.1 Размер массива утсановлю на 10
 2. Создать метод выявления минимального и максимального эллемента массива.
 3. Создать метод вывода массива.
+4. Метод Ввода числового значения
+    4.1 Универсальный метод для Размера массива и Диапозона минимального и максимального значения случайных чисел
 */
 
 System.Console.OutputEncoding = System.Text.Encoding.Unicode; // Данная функция нужна мне для ноутбука что бы писались русские символы в консоли
@@ -31,26 +32,62 @@ return array;
 return (min,max);
 }
 
-string printArray(int[] array){// метод печати массива - что бы он выглядел красиво оформленным 
-    string result = String.Empty;
+string printArray(int[] array){
+    System.Text.StringBuilder result = new System.Text.StringBuilder();
     for (int i = 0; i < array.Length; i++){
-        if (i == 0 )
-            result = "["+Convert.ToString(array[i])+", ";
+        if ((i == 0) && (array.Length > 1) )
+            result.Append("[").Append(array[i]).Append(", ");
+        else if ((i == 0) && (array.Length == 1) ) 
+            result.Append("[").Append(array[i]).Append("]");
         else if ( i < array.Length -1 )
-            result = result +Convert.ToString(array[i])+", ";
+            result.Append(array[i]).Append(", ");
         else 
-            result = result +Convert.ToString(array[i]) +"]";
+            result.Append(array[i]).Append("]");
     }
-return result;
+return result.ToString();
+}
+
+int numberInput(string TextToWriteBeforeInput, string forArrayLengthOrForRandom){//Желание вставить весь воод чисел в один метод
+    bool examIfStrIsInt = true;
+    int number = 0;
+    do{
+        Console.Write($"{TextToWriteBeforeInput}");
+        string numberStr = Console.ReadLine();
+        if (int.TryParse(numberStr, out int numberInt)){
+            if (forArrayLengthOrForRandom == "ArrayLength"){
+                if (numberInt <= 1)
+                    Console.WriteLine("Длина массива не мождет быть меньше или равна 1, повторите попытку");
+                else{
+                    number = numberInt;
+                    examIfStrIsInt = false;
+                }
+            }
+            else {
+                number = numberInt;
+                examIfStrIsInt = false;
+            }
+        }
+        else Console.WriteLine("Ввели не число, повторие попытку");
+    } while (examIfStrIsInt);
+return number;    
 }
 
 Console.WriteLine("Задача 34:\n"+
 "Задайте массив вещественных чисел. \n"+
 "Найдите разницу между максимальным и минимальным элементов массива.\n");
 
-int arrayLength = 10;// в залаче не сказанна длина массива. Указал 10. 
-int minNumberRandom = 0;
-int maxNumberRandom = 10;
+// Так как метод ввода и проверки на число один, решил попробовать именные переменные для проверки читабильности кода.
+int arrayLength = numberInput(
+    TextToWriteBeforeInput:"Введите длину массива : ",
+    forArrayLengthOrForRandom:"ArrayLength");
+
+int minNumberRandom = numberInput(
+    TextToWriteBeforeInput:"Введите минимальное значение случайных чисел : ",
+    forArrayLengthOrForRandom:"ForRandom");
+
+int maxNumberRandom = numberInput(
+    TextToWriteBeforeInput:"Введите максимальное значение случайных чисел : ",
+    forArrayLengthOrForRandom:"ForRandom")+1;
 
 int[] array = arrayCreation(arrayLength,minNumberRandom,maxNumberRandom);
 
@@ -59,4 +96,5 @@ int max = 0;
 
 (min,max) = minAndMaxOfArray(array);
 
-Console.WriteLine($"{printArray(array)} - > min = {min} , max = {max} , max - min = {max-min}");
+Console.WriteLine($"\n{printArray(array)} - > min={min} , max={max} , max - min = {max-min}");
+Console.ReadLine();
