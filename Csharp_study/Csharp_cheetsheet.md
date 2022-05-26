@@ -191,3 +191,15 @@ foreach(char c in "Tom")
 
 </p>
 </details>
+
+<details><summary>Смена цвета текста</summary>
+<p>
+
+```C++
+Console.ForegroundColor = ConsoleColor.Green; // устанавливаем цвет
+Console.WriteLine("...");
+Console.ResetColor(); // сбрасываем в стандартный
+```
+
+</p>
+</details>
