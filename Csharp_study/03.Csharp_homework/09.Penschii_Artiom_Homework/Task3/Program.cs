@@ -44,21 +44,29 @@ long Akerman(long m , long n) // переписал что бы ручками �
     else return Akerman(m-1,Akerman(m,n-1));
 }
 //это пока что максимум что я могу сделать =) там дальше формулы меняются и я не могу понять чего и сколько раз нужно возводить в степень. 
-long AkermanVersionTwo(int numM , int numN)
+ulong AkermanVersionTwo(ulong numM , ulong numN)
 {
-    long stepeni = 2;
-    long eprst = 2;
+    ulong stepeni = 2;
     if ( numM == 0 ) return numN+1;
     if ( numM == 1 ) return numN+2;
     if ( numM == 2 ) return 2*numN+3;
-    if ( numM == 3 ) return (long)Math.Pow(2,numN+3)-3;
+    if ( numM == 3 ) return (ulong)Math.Pow(2,numN+3)-3;
     if ( numM == 4 )
     {
-        for (int i = 2; i < numN+3 ; i++)
+        for (int i = 2; i < (int)numN+3 ; i++)
         {
             stepeni = stepeni*stepeni;
         }
-        return (long)Math.Pow(eprst,stepeni)-3;
+        return (ulong)Math.Pow(2,stepeni)-3;
+    }
+    if ( numM == 5 )
+    {
+        for ( int j = 0 ; j <= (int)numN ;j++)
+            for (int i = 2; i <= (int)numN+3 ; i++)
+            {
+                stepeni = stepeni*stepeni;
+            }
+        return (ulong)Math.Pow(2,stepeni)-3;
     }
     else return 0;
 }
@@ -74,5 +82,5 @@ int numberN = NumberInput("число n");
 //Console.WriteLine($"m = {numberM}, n = {numberN} -> A({numberM},{numberN}) = {acerman}");
 //long acerman = Akerman(numberM,numberN);
 //Console.WriteLine($"m = {numberM}, n = {numberN} -> A({numberM},{numberN}) = {acerman}");
-long acerman = AkermanVersionTwo(numberM,numberN);
+ulong acerman = AkermanVersionTwo((ulong)numberM,(ulong)numberN);
 Console.WriteLine($"m = {numberM}, n = {numberN} -> A({numberM},{numberN}) = {acerman}");
