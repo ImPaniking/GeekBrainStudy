@@ -4,14 +4,14 @@
 
 import time
 
-sting_time = str(time.time_ns())
+sting_time = str(time.time_ns()//100)
 
 list_of_numbers = [1,2,3,4,5,6,7,8,9,10]# Специально его просто задал тут что бы были видны изменения каждый раз при обновлении 
 print(list_of_numbers)
 
 # Прохожусь по каждой позиции в списке, а потом по каждой цифре в значении наносекунды в момент запуска кода. 
 # По факту он несколько раз тасует цифры в зависимости от значения наносекунд 
-
+print(sting_time)
 for i in range(0,len(list_of_numbers)):
     for j in sting_time:
         if int(j) < len(list_of_numbers):
