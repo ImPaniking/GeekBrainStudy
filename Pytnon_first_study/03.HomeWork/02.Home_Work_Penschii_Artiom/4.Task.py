@@ -1,20 +1,28 @@
-# 4 - Реализуйте выдачу случайного числа (или алгоритм перемешивания списка)
-# не использовать random.randint и вообще библиотеку random
-# Можете использовать xor, биты, библиотеку time (миллисекунды или наносекунды) - для задания случайности
+# Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
+import random
 
-import time
+from functions import input_number_test
 
-sting_time = str(time.time_ns()//100)
+number_N = input_number_test("Enter N : ")
+if number_N < 0:
+    number_N *= -1
+list_of_numbers = []
 
-list_of_numbers = [1,2,3,4,5,6,7,8,9,10]# Специально его просто задал тут что бы были видны изменения каждый раз при обновлении 
-print(list_of_numbers)
+for i in range(-number_N,number_N+1):
+    list_of_numbers.append(random.randint(0,10))
 
-# Прохожусь по каждой позиции в списке, а потом по каждой цифре в значении наносекунды в момент запуска кода. 
-# По факту он несколько раз тасует цифры в зависимости от значения наносекунд 
-print(sting_time)
-for i in range(0,len(list_of_numbers)):
-    for j in sting_time:
-        if int(j) < len(list_of_numbers):
-            list_of_numbers[i],list_of_numbers[int(j)] = list_of_numbers[int(j)],list_of_numbers[i]
+# file = open('file.txt' , "a")
+# file.write("2\n3")
+# file.close()
 
-print(list_of_numbers)
+file = open('file.txt' , "r")
+data = file.read()
+list_of_rows = data.split()
+file.close()
+print(f"{list_of_rows}")
+
+result = 1
+for i in list_of_rows:
+    result *= list_of_numbers[int(i)]
+
+print(f"{list_of_numbers} -> {list_of_rows} -> {result}")
