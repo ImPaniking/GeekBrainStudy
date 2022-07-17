@@ -6,8 +6,28 @@
 
 import All_functions_for_home_work as AF
 
+def min_max_of_drob_in_list(list_of_numbers : list) -> int:
+    """look up min and max value of fraction part in float numbers in array
+
+    Args:
+        list_of_numbers (list): array of float numbers
+
+    Returns:
+        int: min and max valuses
+    """
+    # проходит по спуску дробных чисел - оставляет только дробную часть и проверят - оно минимальное и проверяет оно максимальное
+    max = list_of_numbers[0] - int(list_of_numbers[0])
+    min = list_of_numbers[0] - int(list_of_numbers[0]) 
+    for i in list_of_numbers:
+        num = i - int(i)
+        if num > max:
+            max = num
+        if num < min:
+            min = num
+    return min,max
+
 list_of = AF.array_creation_float(10)
 
-min,max = AF.min_max_of_drob_in_list(list_of)
+min,max = min_max_of_drob_in_list(list_of)
 dif = max - min
 print(f"{list_of} => max({max:.3f}) - min({min:.3f}) = {dif:.3f}")

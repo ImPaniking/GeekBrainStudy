@@ -1,3 +1,4 @@
+import random
 
 def input_number_examination(text_in_input = "Enter number :" , case_def = 0, min_num = 0,max_num=10,bool_is_not_decimal = True):
     """Testing if input is a number
@@ -141,3 +142,83 @@ def input_number_params(number , case_def, min_num ,max_num,bool_is_not_decimal)
                 else:
                     print(f"not >={min_num} or =<{max_num} ")
                     return True
+
+def array_creation_random_int(array_length = 10,min_random = 0,max_random = 10) -> list:
+    """Creat an array of numbers in range
+
+    Args:
+        array_length (int, optional): length of array . Defaults to 10.
+        min_random (int, optional): min umber of random. Defaults to 0.
+        max_random (int, optional): max number of random. Defaults to 10.
+
+    Returns:
+        list: list of int random numbers
+    """
+    if array_length <=0:
+        print("Wrong array length choose , settin it to deffoult 10")
+        array_length = 10
+    if min_random > max_random:
+        print("Min value for random is bigger then max, changing placec")
+        min_random,max_random=max_random,min_random
+    elif min_random == max_random:
+        print("Min = Max values for random - it will be 1 number")
+
+    list_of_numbers =[]
+    for i in range(0,array_length):
+        list_of_numbers.append(random.randint(min_random,max_random))
+    return list_of_numbers
+
+def array_creation_range(range_start=0,range_end=10,range_step=1) -> list:
+    """Creat a list of numbers in range
+
+    Args:
+        range_start (int, optional): Start of range. Defaults to 0.
+        range_end (int, optional): end of range (has +1 in formula ). Defaults to 10.
+        range_step (int, optional): step of range. Defaults to 1.
+
+    Returns:
+        list: list of integer numbers in rage
+    """
+    if range_start >= range_end:
+        print("Start of array is bigger then End, changing placec")
+        range_start,range_end = range_end,range_start
+    if range_step <= 0:
+        print("Wrong step , changing to deffoult 1")
+        range_step = 1
+    
+    list_of_numbers =[*range(range_start,range_end+1,range_step)]
+    return list_of_numbers
+
+def array_creation_random_float(array_length = 10,digit_choose = 1,round_digit = 4) -> list:
+    if digit_choose <0 or digit_choose>9:
+        print("Wrong digit choose , settin it to deffoult 1")
+        digit_choose = 1
+    if round_digit < 0:
+        print("Wrong round choose , settin it to deffoult 4")
+        digit_choose = 1
+    if array_length <=0:
+        print("Wrong array length choose , settin it to deffoult 10")
+        array_length = 10
+
+    digit_lib = \
+        {
+            0 : 1 ,
+            1 : 10 ,
+            2 : 10**2 ,
+            3 : 10**3 ,
+            4 : 10**4 ,
+            5 : 10**5 ,
+            6 : 10**6 ,
+            7 : 10**7 ,
+            8 : 10**8 ,
+            9 : 10**9 
+        }
+
+    list_of_numbers =[]
+    for i in range(0,array_length):
+        if round_digit == 0:
+            list_of_numbers.append(int(round(random.random()*digit_lib[digit_choose])))
+        else:
+            list_of_numbers.append(round(random.random()*digit_lib[digit_choose],round_digit))
+    return list_of_numbers
+

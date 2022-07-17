@@ -27,9 +27,7 @@
 
 # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи](https://clck.ru/sH87m)
 from posixpath import split
-from queue import Empty
 import random
-import math
 
 def input_number_test_biger_then_zero(text : str) -> int:
     """Test - if input is a ineger > 0
