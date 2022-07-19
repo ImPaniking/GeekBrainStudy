@@ -1,2 +1,6 @@
-import math
-print(f"{math.pi:.50f}")
+a = 8.456
+b = a - int(a)
+
+length = len(str(b))
+
+print(b)
