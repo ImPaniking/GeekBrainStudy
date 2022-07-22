@@ -29,4 +29,12 @@ def list_without_duble(list_of_numbers : list) ->list:
             new_list.append(i)
     return new_list
 
-print(f"Without repetitions : {list_without_duble(list_of_fibonacci)}")
+# count
+def list_with_no_(list_of_numbers : list) ->list:
+    new_list = []
+    for i in list_of_numbers:
+        if list_of_numbers.count(i) == 1:
+            new_list.append(i)
+    return new_list
+
+print(f"Without repetitions : {list_with_no_(list_of_fibonacci)}")
