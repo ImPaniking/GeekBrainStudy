@@ -284,3 +284,14 @@ def sort_array(list_of_numbers : list):
     for i in range(0,int(len(list_of_numbers)/2)):
         list_of_numbers[i],list_of_numbers[-(1+i)] = list_of_numbers[-(1+i)],list_of_numbers[i]
 
+def file_create(path : str,text : str):
+    """Созадёт файл с текстом
+
+    Args:
+        path (str): Название/Путь_файла
+        text (str): текст для записи
+    """
+    file = open(path , "w",encoding='utf-8')
+    file.write(text)
+    file.close()
+
