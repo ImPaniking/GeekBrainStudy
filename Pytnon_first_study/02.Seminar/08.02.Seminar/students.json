@@ -1,0 +1,32 @@
+{
+  "0": {
+    "Name": "Vano",
+    "SirName": "P",
+    "Sex": "female",
+    "Birth Day": "31/03/1991",
+    "Class": 12,
+    "Clss-type": "A",
+    "Marcs Status": {},
+    "LCP": {}
+  },
+  "2": {
+    "Name": "Kate",
+    "SirName": "P",
+    "Sex": "female",
+    "Birth Day": "31/03/1991",
+    "Class": 12,
+    "Clss-type": "A",
+    "Marcs Status": {},
+    "LCP": {}
+  },
+  "4": {
+    "Name": "Ilia",
+    "SirName": "A",
+    "Sex": "male",
+    "Birth Day": "31/03/1991",
+    "Class": 11,
+    "Clss-type": "A",
+    "Marcs Status": {},
+    "LCP": {}
+  }
+}
