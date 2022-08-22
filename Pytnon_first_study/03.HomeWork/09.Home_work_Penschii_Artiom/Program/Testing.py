@@ -31,12 +31,8 @@ def csv_creation(list_of_rows,path_to_create):
 
 def csv_append(path_to_create,row):
     with open(path_to_create, 'a', newline='') as f_object:  
-        # Pass the CSV  file object to the writer() function
         writer_object = csv.writer(f_object, delimiter = ",", lineterminator="\r")
-        # Result - a writer object
-        # Pass the data in the list as an argument into the writerow() function
         writer_object.writerow(row)  
-        # Close the file object
     f_object.close()
 
 def row_creation():
