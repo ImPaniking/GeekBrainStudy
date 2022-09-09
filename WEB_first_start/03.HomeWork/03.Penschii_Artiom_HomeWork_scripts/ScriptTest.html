@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p>Это обычный HTML документ</p>
+
+<script language="JavaScript">
+    var name_person = prompt("Enter name : ")
+    function OutPutInfo(){
+        switch (name_person.toLocaleLowerCase()){
+            case "артур":
+                alert("Здраствуйте ," + name_person + " спасибо за проверку")
+                break
+            case "artur":
+                alert("Здраствуйте ," + name_person + " спасибо за проверку")
+                break
+            case "артём":
+                alert("Дарова ," + name_person + " !")
+                break
+            case "artiom":
+                alert("Дарова ," + name_person + " !")
+                break
+            case "миха":
+                alert("ОГО! ," + name_person + " это реально ты ?!")
+                break
+            case "miha":
+                alert("ОГО! ," + name_person + " это реально ты ?!")
+                break
+            default:
+                alert("Привет, " + name_person )
+        }
+    }
+    OutPutInfo()
+</script>
+
+<p>Выходим обратно в HTML</p>
+</body>
+</html>
