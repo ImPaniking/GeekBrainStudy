@@ -1,5 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.Random;
+import java.util.Arrays;
 
 public class NewProgram {
     public static void main(String[] args) {
@@ -23,9 +23,34 @@ public class NewProgram {
     }
 
     static int[][] PodPod(int[] a){
-        int[][] array = new int[10000][10000];
+        int[][] array = new int[10000][a.length];
+        int index = 0;
+        int index_2 = 0;
+        int[] tempArray = new int[a.length];
+        for (int i =0 ; i < a.length ; i ++){
+            Arrays.fill(tempArray,0);
+            for ( int j = i ; j < a.length ; j ++){
+                tempArray[index_2] = a[j];
+                index_2++;
+            if (InArray(array,tempArray)){
+                array[index] = tempArray;
+                index++;
+            }
+
+            }
+        }
         
         return array;
     }
+    static boolean InArray(int[][] a , int[] b){
+        boolean boo = false;
+        for (int[] tempArr : a){
+            if (b == tempArr){
+                boo = true;
+                break;
+            }
+        }
+        return boo;
+    }    
 }
 
